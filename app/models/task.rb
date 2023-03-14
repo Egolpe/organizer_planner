@@ -1,7 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :category
   belongs_to :owner, class_name: 'User'
-  has_many :participating_users
+  has_many :participating_users, class_name: 'Participant'
   has_many :participants, through: :participating_users, source: :user
   
   validates :participating_users, presence: true
